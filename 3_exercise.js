@@ -8,6 +8,7 @@ let camelCaseDo = (str) => {
   for (let i = 0; i < arr.length; i++) {
     let arrtwo = arr[i].split('');
       if (arrtwo.indexOf('-') >= 0) {
+        arrtwo[(arrtwo.indexOf('-') + 1)] = arrtwo[(arrtwo.indexOf('-') + 1)].toUpperCase();
         arrtwo.splice(arrtwo.indexOf('-'), 1)
       };
     arr[i] = arrtwo.join('') 
@@ -15,17 +16,4 @@ let camelCaseDo = (str) => {
   return arr.join(' ')
 }
 
-// или
-
-let camelCaseDo = (str) => {
-    let arr = str.split(' ');
-    let result = arr.map((item) => {
-        let arrtwo = item.split('');
-        if (arrtwo.indexOf('-') >= 0) {
-          arrtwo.splice(arrtwo.indexOf('-'), 1)
-        };
-      item = arrtwo.join('');
-      return item;
-    });
-    return result.join(' ')
-  }
+console.log(camelCaseDo(str))
